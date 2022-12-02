@@ -3,8 +3,8 @@
 # OM V CHENDVANKAR - 17-SEP-2022
 # UNIVERSITY DEPARTMENT OF INFORMATION TECHNOLOGY
 
-from skimage import io
 import pandas as pd
+from skimage import io
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,20 +23,20 @@ print('RGBA:' ,Data.shape[2])
 RawData = Data.flatten()
 print(RawData.shape)
 
-y = data.shape[2] + 2
+y = Data.shape[2] + 2
 x = int(RawData.shape[0]/y)
 
 Pdata = pd.DataFrame(np.reshape(RawData, (x,y)))
 sColumns= ['Xaxis', 'Yaxis', 'Red', 'Green', 'Blue']
 print(Pdata)
 
-Pdata.index,names = ['ID']
+Pdata.index.names = ['ID']
 print(Pdata)
 
 print('===========================')
 print('Process Data Values =======')
 print('===========================')
-plt.imshow(InputData)
+plt.imshow(Pdata)
 
 OPdata = Pdata
 OPdata.to_csv('D:\\M.Sc.IT\\Sem 1\\Data Science\\PRACTICAL\\2 CONVERTING DATA TO HORUS\\outputs\\imagetohorus', index = False)
